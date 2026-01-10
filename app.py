@@ -27,7 +27,7 @@ if mode == "Multi Objective":
     )
 
 # Run PSO
-pso = PSO(
+
     n_particles=particles,
     iterations=iterations,
     w=w,

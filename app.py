@@ -2,8 +2,6 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from pso import PSO
 
-best_price, best_revenue, revenue_history, fitness_history = pso.optimize()
-
 st.set_page_config(page_title="PSO Ticket Pricing", layout="centered")
 
 st.title("🎬 Cinema Ticket Pricing Optimization")
@@ -40,7 +38,7 @@ pso = PSO(
     alpha=alpha
 )
 
-best_price, best_revenue, history = pso.optimize()
+best_price, best_revenue, revenue_history, fitness_history = pso.optimize()
 
 # Results
 st.subheader("📊 Optimization Results")

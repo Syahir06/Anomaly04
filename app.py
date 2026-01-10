@@ -38,7 +38,7 @@ pso = PSO(
     alpha=alpha
 )
 
-best_price, best_revenue, history = pso.optimize()
+best_price, best_revenue, revenue_history, fitness_history = pso.optimize()
 
 # Results
 st.subheader("📊 Optimization Results")

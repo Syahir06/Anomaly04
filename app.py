@@ -1,6 +1,5 @@
 import streamlit as st
 import matplotlib.pyplot as plt
-from pso import PSO
 
 st.set_page_config(page_title="PSO Ticket Pricing", layout="centered")
 

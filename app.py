@@ -1,5 +1,6 @@
 import streamlit as st
 import matplotlib.pyplot as plt
+from pso import PSO
 
 st.set_page_config(page_title="PSO Ticket Pricing", layout="centered")
 
@@ -27,7 +28,7 @@ if mode == "Multi Objective":
     )
 
 # Run PSO
-
+pso = PSO(
     n_particles=particles,
     iterations=iterations,
     w=w,
@@ -37,7 +38,7 @@ if mode == "Multi Objective":
     alpha=alpha
 )
 
-best_price, best_revenue, revenue_history, fitness_history = pso.optimize()
+best_price, best_revenue, history = pso.optimize()
 
 # Results
 st.subheader("📊 Optimization Results")
@@ -53,11 +54,10 @@ ax.set_ylabel("Revenue")
 ax.grid(True)
 st.pyplot(fig)
 
-st.subheader("📉 Fitness Value Over Iterations")
-fig2, ax2 = plt.subplots()
-ax2.plot(fitness_history)
-ax2.set_xlabel("Iteration")
-ax2.set_ylabel("Fitness Value")
-ax2.grid(True)
-st.pyplot(fig2)
-
+# Explanation
+st.subheader("ℹ️ Explanation")
+st.write("""
+- **Single Objective**: Maximizes cinema revenue.
+- **Multi Objective**: Balances revenue and ticket affordability.
+- PSO converges quickly and provides stable pricing solutions.
+""")

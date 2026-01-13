@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from pso import PSO
 
 st.set_page_config(page_title="PSO Ticket Pricing", layout="centered")
-enable_tuning = st.sidebar.checkbox("Enable Parameter Tuning")
 
 st.subheader("🎯 Optimization Targets")
 st.write("""
@@ -58,4 +57,22 @@ ax.set_ylabel("Revenue")
 ax.grid(True)
 st.pyplot(fig)
 
+enable_tuning = st.sidebar.checkbox("Enable Parameter Tuning")
+
+from tuning import tune_pso
+
+if enable_tuning:
+    st.subheader("🔧 Parameter Tuning Results")
+
+    result = tune_pso()
+
+    st.write("Best Parameters Found:")
+    st.write(f"w = {result['w']}")
+    st.write(f"c1 = {result['c1']}")
+    st.write(f"c2 = {result['c2']}")
+
+    st.write(f"Optimal Ticket Price: RM {result['price']:.2f}")
+    st.write(f"Maximum Revenue: RM {result['revenue']:.2f}")
+
+ax.axhline(250, linestyle="--", label="Target Revenue")
 

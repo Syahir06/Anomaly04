@@ -5,7 +5,6 @@ import numpy as np
 def fitness(price):
     """
     Objective:
-    - Maximize revenue
     - Ticket price <= RM30
     - Revenue capped at RM250
     """

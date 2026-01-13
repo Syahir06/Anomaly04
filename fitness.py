@@ -14,6 +14,9 @@ def fitness(price):
     demand = max(0, 50 - 1.5 * price)  # scaled to fit revenue ≤ 250
     revenue = price * demand
 
+    # Cap revenue to target
+    revenue = min(revenue, 250)
+    
     return -revenue  # PSO minimizes
 
 def multi_objective_fitness(price, alpha=0.1):

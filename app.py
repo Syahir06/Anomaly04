@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from pso import PSO
 
 st.set_page_config(page_title="PSO Ticket Pricing", layout="centered")
+enable_tuning = st.sidebar.checkbox("Enable Parameter Tuning")
 
 st.subheader("🎯 Optimization Targets")
 st.write("""
@@ -57,10 +58,4 @@ ax.set_ylabel("Revenue")
 ax.grid(True)
 st.pyplot(fig)
 
-# Explanation
-st.subheader("ℹ️ Explanation")
-st.write("""
-- **Single Objective**: Maximizes cinema revenue.
-- **Multi Objective**: Balances revenue and ticket affordability.
-- PSO converges quickly and provides stable pricing solutions.
-""")
+

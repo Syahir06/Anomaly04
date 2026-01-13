@@ -4,8 +4,11 @@ from pso import PSO
 
 st.set_page_config(page_title="PSO Ticket Pricing", layout="centered")
 
-st.title("🎬 Cinema Ticket Pricing Optimization")
-st.write("Using **Particle Swarm Optimization (PSO)**")
+st.subheader("🎯 Optimization Targets")
+st.write("""
+- **Maximum Ticket Price:** RM30  
+- **Target Maximum Revenue:** RM250  
+""")
 
 # Sidebar parameters
 st.sidebar.header("PSO Parameters")

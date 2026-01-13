@@ -5,6 +5,7 @@ import numpy as np
 def fitness(price):
     """
     Objective:
+    - Maximize revenue
     - Ticket price <= RM30
     - Revenue capped at RM250
     """
@@ -12,9 +13,6 @@ def fitness(price):
 
     demand = max(0, 50 - 1.5 * price)  # scaled to fit revenue ≤ 250
     revenue = price * demand
-
-    # Cap revenue to target
-    revenue = min(revenue, 250)
 
     return -revenue  # PSO minimizes
 

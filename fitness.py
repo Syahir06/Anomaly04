@@ -1,14 +1,30 @@
 import numpy as np
 
-# Single-objective fitness (maximize revenue)
+# fitness.py
+
 def fitness(price):
-    demand = max(0, 500 - 20 * price)
+    """
+    Objective:
+    - Maximize revenue
+    - Ticket price <= RM30
+    - Revenue capped at RM250
+    """
+    price = min(price, 30)
+
+    demand = max(0, 50 - 1.5 * price)  # scaled to fit revenue ≤ 250
     revenue = price * demand
+
+    # Cap revenue to target
+    revenue = min(revenue, 250)
+
     return -revenue  # PSO minimizes
 
-# Multi-objective fitness
 def multi_objective_fitness(price, alpha=0.1):
-    demand = max(0, 500 - 20 * price)
-    revenue = price * demand
-    affordability = price
+    price = min(price, 30)
+
+    demand = max(0, 50 - 1.5 * price)
+    revenue = min(price * demand, 250)
+
+    affordability = price  # lower is better
+
     return -revenue + alpha * affordability

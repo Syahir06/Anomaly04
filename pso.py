@@ -7,7 +7,7 @@ class PSO:
         n_particles=30,
         iterations=100,
         price_min=5,
-        price_max=25,
+        price_max=30,  # 🔹 UPDATED
         w=0.7,
         c1=1.5,
         c2=1.5,
